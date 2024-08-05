@@ -1,3 +1,4 @@
+"use client"
 import Link from "next/link"
 import {
     CircleUser,
@@ -16,6 +17,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Input } from "@/components/ui/input"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import ThemeToggle from "./toggleTheme"
 
 export function Navbar() {
     return (
@@ -137,6 +139,9 @@ export function Navbar() {
                             <DropdownMenuItem>Logout</DropdownMenuItem>
                         </DropdownMenuContent>
                     </DropdownMenu>
+                </div>
+                <div>
+                    <ThemeToggle />
                 </div>
             </div>
         </div>
