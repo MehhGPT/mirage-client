@@ -36,9 +36,9 @@ const ThemeToggle = () => {
 		<button onClick={toggleTheme}>
 			{
 				light ?
-					<SunIcon />
-					:
 					<MoonIcon />
+					:
+					<SunIcon />
 			}
 		</button>
 	);

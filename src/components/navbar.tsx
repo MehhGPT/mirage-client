@@ -140,7 +140,7 @@ export function Navbar() {
                         </DropdownMenuContent>
                     </DropdownMenu>
                 </div>
-                <div>
+                <div className="h-5 w-5">
                     <ThemeToggle />
                 </div>
             </div>
