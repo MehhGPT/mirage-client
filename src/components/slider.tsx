@@ -27,7 +27,7 @@ export function Slider() {
 				{Array.from({ length: 5 }).map((_, index) => (
 					<CarouselItem key={index} className="flex items-center justify-center h-full">
 						<div className="w-full h-full p-5">
-							<Card className="w-full h-[375px]">
+							<Card className="w-full shadow-lg h-[375px]">
 								<CardContent className="flex items-center justify-center h-full">
 									<span className="text-4xl font-semibold">{index + 1}</span>
 								</CardContent>
