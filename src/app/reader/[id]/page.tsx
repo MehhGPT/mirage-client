@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import Image from 'next/image';
+import Pages from "./page2";
 
 export default function Component() {
   return (
@@ -58,6 +59,7 @@ export default function Component() {
           <span>N/A</span>
         </div>
       </div>
+      <Pages/>
     </div>
   )
 }
