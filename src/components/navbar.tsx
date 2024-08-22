@@ -3,7 +3,6 @@ import Link from "next/link"
 import {
     CircleUser,
     Menu,
-    Package2,
     Search,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -17,20 +16,18 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Input } from "@/components/ui/input"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import ThemeToggle from "./toggleTheme"
+import { Logo, ThemeToggleButton } from "./toggleTheme"
+import LightLogo from '@/images/Dark.svg';
+import Image from "next/image"
 
 export function Navbar() {
     return (
         <div className="flex h-[10svh] w-full z-0 flex-col">
             <div className="fixed top-0 w-full flex h-16 shadow-md items-center gap-4 border-b bg-background px-4 md:px-6">
+                <Link href="/" className="hidden flex-col gap-6 text-lg font-normal md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
+                    <Logo />
+                </Link>
                 <nav className="hidden flex-col gap-6 text-lg font-normal md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
-                    <Link
-                        href="#"
-                        className="flex items-center gap-2 text-lg font-semibold md:text-base"
-                    >
-                        <Package2 className="h-6 w-6" />
-                        <span className="sr-only">Mehh</span>
-                    </Link>
                     <Link
                         href="#"
                         className="text-muted-foreground transition-colors hover:text-foreground"
@@ -74,14 +71,14 @@ export function Navbar() {
                         </Button>
                     </SheetTrigger>
                     <SheetContent side="left">
+                        <Link
+                            href="/"
+                            className="flex items-center gap-2 text-lg font-semibold"
+                        >
+                            <Logo />
+                        </Link>
+
                         <nav className="grid gap-6 text-lg font-medium">
-                            <Link
-                                href="#"
-                                className="flex items-center gap-2 text-lg font-semibold"
-                            >
-                                <Package2 className="h-6 w-6" />
-                                <span className="sr-only">Mehh</span>
-                            </Link>
                             <Link href="#" className="text-muted-foreground hover:text-foreground">
                                 UPDATES
                             </Link>
@@ -141,7 +138,7 @@ export function Navbar() {
                     </DropdownMenu>
                 </div>
                 <div className="h-5 w-5">
-                    <ThemeToggle />
+                    <ThemeToggleButton />
                 </div>
             </div>
         </div>

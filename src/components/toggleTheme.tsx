@@ -1,47 +1,32 @@
 // components/ThemeToggle.tsx
 import { SunIcon, MoonIcon } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useTheme } from '@/hooks/useTheme';
+import LightLogo from '@/images/Light.svg';
+import DarkLogo from '@/images/Dark.svg';
 
-const ThemeToggle = () => {
-	const [theme, setTheme] = useState('light');
-	const [light, setLight] = useState(true);
-
-	useEffect(() => {
-		if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-			document.documentElement.classList.add('dark');
-			setTheme('dark');
-			setLight(false);
-		} else {
-			document.documentElement.classList.remove('dark');
-			setTheme('light');
-			setLight(true);
-		}
-	}, []);
-
-	const toggleTheme = () => {
-		if (theme === 'dark') {
-			document.documentElement.classList.remove('dark');
-			localStorage.setItem('theme', 'light');
-			setTheme('light');
-			setLight(true);
-		} else {
-			document.documentElement.classList.add('dark');
-			localStorage.setItem('theme', 'dark');
-			setTheme('dark');
-			setLight(false);
-		}
-	};
+export const ThemeToggleButton = () => {
+	const { theme, toggleTheme } = useTheme();
 
 	return (
 		<button onClick={toggleTheme}>
-			{
-				light ?
-					<MoonIcon />
-					:
-					<SunIcon />
-			}
+			{theme === 'light' ? <MoonIcon /> : <SunIcon />}
 		</button>
 	);
 };
 
-export default ThemeToggle;
+export const Logo = () => {
+	const { theme } = useTheme();
+
+	const logo = theme === 'light' ? LightLogo : DarkLogo;
+
+	return (
+			<Image
+				src={logo}
+				alt="MIRAGE"
+				width={150}
+				height={100}
+			/>
+	);
+};
