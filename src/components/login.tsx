@@ -13,7 +13,6 @@ import { Label } from "@/components/ui/label"
 
 export const description =
   "A login form with email and password. There's an option to login with Google and a link to sign up if you don't have an account."
-
 export function LoginForm() {
   return (
     <Card className="mx-auto max-w-sm">
@@ -42,7 +41,7 @@ export function LoginForm() {
             <Link href="#" className="ml-auto inline-block text-sm underline">
                 Forgot your password?
             </Link>
-            </div>
+          </div>
           <Button type="submit" className="w-full">
             Login
           </Button>
