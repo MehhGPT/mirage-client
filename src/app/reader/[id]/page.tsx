@@ -11,7 +11,7 @@ export default function Component() {
   const pageDataVal = pageData();
 
   return (
-    <div className="bg-dark-800 text-white p-6">
+    <div className="bg-dark-800 text-dark p-6">
       <div>
         Social, Message
       </div>
