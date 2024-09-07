@@ -1,6 +1,10 @@
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
+
 import Image from 'next/image';
+import Berserk from '@/images/COVER1.jpg';
+
+function pageData() {
+  return [1, 2, 3]
+}
 
 export default function Component() {
 
@@ -20,8 +24,6 @@ export default function Component() {
           ))
         }
       </div>
-      <Pages/>
     </div>
   )
 }
-
