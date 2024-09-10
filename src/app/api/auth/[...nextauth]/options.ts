@@ -31,10 +31,10 @@ export const options: NextAuthOptions = {
                 }
             },
         }),
-        // GoogleProvider({
-        //     clientId: process.env.GOOGLE_ID as string,
-        //     clientSecret: process.env.GOOGLE_SECRET as string,
-        // }),
+        GoogleProvider({
+            clientId: '176427497216-7r3d1kpt5f0la8cevkbkos16mfvp2bc3.apps.googleusercontent.com',
+            clientSecret: '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',
+        }),
         // GitHubProvider({
         //     clientId: process.env.GITHUB_ID as string,
         //     clientSecret: process.env.GITHUB_SECRET as string,
