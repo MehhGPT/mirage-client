@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import Berserk from '@/images/COVER1.jpg';
-import { useRouter } from 'next/navigation'; // Correct import for useRouter
+import { usePathname, useRouter } from 'next/navigation'; // Correct import for useRouter
 import { useEffect, useRef } from 'react';
 
 function pageData() {
@@ -12,14 +12,16 @@ function pageData() {
 
 export default function Component() {
   const router = useRouter();
+  const path = usePathname();
   const pageDataVal = pageData();
-  
+  const basePath = path?.split('/').slice(0, 3).join('/');
+
   // Swipe state tracking
   const touchStartX = useRef<number>(0);
   const touchEndX = useRef<number>(0);
 
   const handleCardClick = (storyId: number) => {
-    router.push(`/story/${storyId}`);
+    router.push(`${basePath}/${storyId}`);
   };
 
   const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
@@ -34,10 +36,11 @@ export default function Component() {
   const handleSwipe = () => {
     if (touchEndX.current < touchStartX.current - 50) {
       // Swipe left
-      handleCardClick(3);
-    } else if (touchEndX.current > touchStartX.current + 50) {
+      handleCardClick(Math.floor(Math.random() * 100));
+    }
+    if (touchEndX.current > touchStartX.current + 50) {
       // Swipe right
-      handleCardClick(2);
+      handleCardClick(Math.floor(Math.random() * 100));
     }
   };
 
@@ -55,14 +58,14 @@ export default function Component() {
           ))
         }
 
-        <div className="flex justify-between items-center w-full mt-10">
+        <div className="flex justify-between items-center w-full flex-col m-[2rem]">
           <h2 className="text-xl font-bold mb-4 w-full text-center">Next Stories</h2>
-          <div 
-            className="flex space-x-4 w-full" 
+          <div
+            className="flex space-x-4 w-full"
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
           >
-            <Card className="bg-light w-1/2 p-6 cursor-pointer" onClick={() => handleCardClick(2)}>
+            <Card className="bg-light w-1/2 p-6 cursor-pointer" onClick={() => handleCardClick(Math.floor(Math.random() * 100))}>
               <CardHeader>
                 <CardTitle className="text-xl">Next Story 2</CardTitle>
               </CardHeader>
@@ -70,7 +73,7 @@ export default function Component() {
                 <p className="text-gray-400">Description of the next story goes here.</p>
               </CardContent>
             </Card>
-            <Card className="bg-light w-1/2 p-6 cursor-pointer" onClick={() => handleCardClick(3)}>
+            <Card className="bg-light w-1/2 p-6 cursor-pointer" onClick={() => handleCardClick(Math.floor(Math.random() * 100))}>
               <CardHeader>
                 <CardTitle className="text-xl">Next Story 3</CardTitle>
               </CardHeader>
