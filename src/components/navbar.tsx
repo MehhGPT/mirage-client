@@ -22,6 +22,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, Di
 import GoogleButton from "./auth/LoginButtons/GoogleButton"
 import SignOutButton from "./SignOut"
 import GithubButton from "./auth/LoginButtons/GitHubButton"
+import Image from "next/image"
 
 export default function Navbar() {
 
@@ -34,34 +35,29 @@ export default function Navbar() {
                     <Link href="/" className="hidden flex-col gap-6 text-lg font-normal md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
                         <Logo />
                     </Link>
-                    <nav className="hidden flex-col gap-6 text-lg font-normal md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
+                    <nav className="hidden flex-col gap-1 text-lg font-normal md:flex md:flex-row md:items-center md:gap-1 md:text-sm lg:gap-1">
                         <Link
                             href="#"
-                            className="text-muted-foreground transition-colors hover:text-foreground"
+                            className="text-muted-foreground transition-colors hover:text-foreground w-[100px] flex items-center justify-center"
                         >
                             UPDATES
                         </Link>
                         <Link
                             href="#"
-                            className="text-muted-foreground transition-colors hover:text-foreground"
+                            className="text-muted-foreground transition-colors hover:text-foreground w-[100px] flex items-center justify-center"
                         >
-                            MANGALIST
+                            STORY LIST
+                        </Link>
+                        <Link
+                            href={process.env.NEXT_PUBLIC_CREATOR_SITE as string}
+                            className="text-muted-foreground transition-colors hover:text-foreground w-[100px] flex items-center justify-center"
+                            target="_blank"
+                        >
+                            CREATORS'
                         </Link>
                         <Link
                             href="#"
-                            className="text-muted-foreground transition-colors hover:text-foreground"
-                        >
-                            RANKING
-                        </Link>
-                        <Link
-                            href="#"
-                            className="text-muted-foreground transition-colors hover:text-foreground"
-                        >
-                            CREATORS
-                        </Link>
-                        <Link
-                            href="#"
-                            className="text-muted-foreground transition-colors hover:text-foreground"
+                            className="text-muted-foreground transition-colors hover:text-foreground w-[100px] flex items-center justify-center"
                         >
                             ABOUT
                         </Link>
@@ -86,32 +82,23 @@ export default function Navbar() {
                             </Link>
 
                             <nav className="grid gap-6 text-lg font-medium">
-                                <Link href="#" className="text-muted-foreground hover:text-foreground">
+                                <Link
+                                    href="#"
+                                    className="text-muted-foreground transition-colors hover:text-foreground w-[100px] flex items-center justify-center"
+                                >
                                     UPDATES
                                 </Link>
                                 <Link
                                     href="#"
-                                    className="text-muted-foreground hover:text-foreground"
+                                    className="text-muted-foreground transition-colors hover:text-foreground w-[100px] flex items-center justify-center"
                                 >
-                                    MANGA LIST
+                                    STORY LIST
                                 </Link>
                                 <Link
                                     href="#"
-                                    className="text-muted-foreground hover:text-foreground"
+                                    className="text-muted-foreground transition-colors hover:text-foreground w-[100px] flex items-center justify-center"
                                 >
-                                    RANKING
-                                </Link>
-                                <Link
-                                    href="#"
-                                    className="text-muted-foreground hover:text-foreground"
-                                >
-                                    CREATORS
-                                </Link>
-                                <Link
-                                    href="#"
-                                    className="text-muted-foreground hover:text-foreground"
-                                >
-                                    ABOUT US
+                                    ABOUT
                                 </Link>
                             </nav>
                         </SheetContent>
@@ -130,7 +117,8 @@ export default function Navbar() {
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
                                 <Button variant="secondary" size="icon" className="rounded-full">
-                                    <CircleUser className="h-5 w-5" />
+                                    {/* <CircleUser className="h-5 w-5" /> */}
+                                    <Image src={session.data.user.image as string} alt="User" height={30} width={30} className=" rounded-full" />
                                     <span className="sr-only">Toggle user menu</span>
                                 </Button>
                             </DropdownMenuTrigger>
@@ -163,31 +151,19 @@ export default function Navbar() {
                 <nav className="hidden flex-col gap-6 text-lg font-normal md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
                     <Link
                         href="#"
-                        className="text-muted-foreground transition-colors hover:text-foreground"
+                        className="text-muted-foreground transition-colors hover:text-foreground w-[100px] flex items-center justify-center"
                     >
                         UPDATES
                     </Link>
                     <Link
                         href="#"
-                        className="text-muted-foreground transition-colors hover:text-foreground"
+                        className="text-muted-foreground transition-colors hover:text-foreground w-[100px] flex items-center justify-center"
                     >
-                        MANGALIST
+                        STORY LIST
                     </Link>
                     <Link
                         href="#"
-                        className="text-muted-foreground transition-colors hover:text-foreground"
-                    >
-                        RANKING
-                    </Link>
-                    <Link
-                        href="#"
-                        className="text-muted-foreground transition-colors hover:text-foreground"
-                    >
-                        CREATORS
-                    </Link>
-                    <Link
-                        href="#"
-                        className="text-muted-foreground transition-colors hover:text-foreground"
+                        className="text-muted-foreground transition-colors hover:text-foreground w-[100px] flex items-center justify-center"
                     >
                         ABOUT
                     </Link>
@@ -212,32 +188,23 @@ export default function Navbar() {
                         </Link>
 
                         <nav className="grid gap-6 text-lg font-medium">
-                            <Link href="#" className="text-muted-foreground hover:text-foreground">
+                            <Link
+                                href="#"
+                                className="text-muted-foreground transition-colors hover:text-foreground w-[100px] flex items-center justify-center"
+                            >
                                 UPDATES
                             </Link>
                             <Link
                                 href="#"
-                                className="text-muted-foreground hover:text-foreground"
+                                className="text-muted-foreground transition-colors hover:text-foreground w-[100px] flex items-center justify-center"
                             >
-                                MANGA LIST
+                                STORY LIST
                             </Link>
                             <Link
                                 href="#"
-                                className="text-muted-foreground hover:text-foreground"
+                                className="text-muted-foreground transition-colors hover:text-foreground w-[100px] flex items-center justify-center"
                             >
-                                RANKING
-                            </Link>
-                            <Link
-                                href="#"
-                                className="text-muted-foreground hover:text-foreground"
-                            >
-                                CREATORS
-                            </Link>
-                            <Link
-                                href="#"
-                                className="text-muted-foreground hover:text-foreground"
-                            >
-                                ABOUT US
+                                ABOUT
                             </Link>
                         </nav>
                     </SheetContent>
