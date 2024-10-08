@@ -1,6 +1,7 @@
-# ui-project-1/Dockerfile
-# Use the official Node.js image
-FROM node:20 AS build
+# mirage-client/Dockerfile
+
+# Use Node.js image for building the application
+FROM node:20 AS builder
 
 # Set the working directory
 WORKDIR /app
@@ -14,17 +15,14 @@ RUN yarn install
 # Copy the rest of the application code
 COPY . .
 
-# Build the application
+# Build the application for production
 RUN yarn build
 
-# Use a lightweight web server to serve the static files
-FROM nginx:alpine
+# Install `serve` to serve the built app
+RUN yarn -g serve
 
-# Copy the build files to Nginx
-COPY --from=build /app/build /usr/share/nginx/html
+# Expose the port the app will run on
+EXPOSE 3000
 
-# Expose the port the app runs on
-EXPOSE 80
-
-# Command to run Nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Command to run the app
+CMD ["yarn", "start"]
