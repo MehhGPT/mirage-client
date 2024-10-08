@@ -53,7 +53,7 @@ export default function Navbar() {
                             className="text-muted-foreground transition-colors hover:text-foreground w-[100px] flex items-center justify-center"
                             target="_blank"
                         >
-                            CREATORS'
+                            CREATORS &apos;
                         </Link>
                         <Link
                             href="#"
@@ -93,6 +93,13 @@ export default function Navbar() {
                                     className="text-muted-foreground transition-colors hover:text-foreground w-[100px] flex items-center justify-center"
                                 >
                                     STORY LIST
+                                </Link>
+                                <Link
+                                    href={process.env.NEXT_PUBLIC_CREATOR_SITE as string}
+                                    className="text-muted-foreground transition-colors hover:text-foreground w-[100px] flex items-center justify-center"
+                                    target="_blank"
+                                >
+                                    CREATORS &apos;
                                 </Link>
                                 <Link
                                     href="#"
@@ -162,6 +169,13 @@ export default function Navbar() {
                         STORY LIST
                     </Link>
                     <Link
+                        href={process.env.NEXT_PUBLIC_CREATOR_SITE as string}
+                        className="text-muted-foreground transition-colors hover:text-foreground w-[100px] flex items-center justify-center"
+                        target="_blank"
+                    >
+                        CREATORS &apos;
+                    </Link>
+                    <Link
                         href="#"
                         className="text-muted-foreground transition-colors hover:text-foreground w-[100px] flex items-center justify-center"
                     >
@@ -199,6 +213,13 @@ export default function Navbar() {
                                 className="text-muted-foreground transition-colors hover:text-foreground w-[100px] flex items-center justify-center"
                             >
                                 STORY LIST
+                            </Link>
+                            <Link
+                                href={process.env.NEXT_PUBLIC_CREATOR_SITE as string}
+                                className="text-muted-foreground transition-colors hover:text-foreground w-[100px] flex items-center justify-center"
+                                target="_blank"
+                            >
+                                CREATORS &apos;
                             </Link>
                             <Link
                                 href="#"
