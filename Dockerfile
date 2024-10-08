@@ -1,5 +1,7 @@
 FROM node:20 AS builder
-WORKDIR /app
+
+WORKDIR /usr/src/app
+
 COPY . .
 RUN yarn install
 RUN yarn build
