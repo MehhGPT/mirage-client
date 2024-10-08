@@ -3,6 +3,6 @@ FROM node:20 AS builder
 WORKDIR /usr/src/app
 
 COPY . .
-RUN yarn install
-RUN yarn build
-CMD ["yarn", "start"]
+RUN npm install
+RUN npm run build
+CMD ["npm", "start"]
