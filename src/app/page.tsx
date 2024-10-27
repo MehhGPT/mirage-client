@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 async function getStories() {
     try {
         const res = await fetch('/api/fetchStories', {
-            cache: "no-cache",
+            cache: "reload",
             method: "GET"
         });
 
