@@ -42,7 +42,7 @@ export default function Home() {
             <div className=" flex flex-wrap flex-row w-[90%] items-center justify-center">
                 {stories.map((element: any) => (
                     <div id={element._id} key={element._id}>
-                        <MangaCard link={`/reader/${element.storyId}/1`} Desc={element.storyDetails} image={`http://${element.coverImage}`} Title={element.storyName} />
+                        <MangaCard link={`/reader/${element.storyId}/1`} Desc={element.storyDetails} image={`https://${element.coverImage}`} Title={element.storyName} />
                         {/* <img src={`http://${element.coverImage}`} alt="cover" /> */}
                     </div>
                 ))}

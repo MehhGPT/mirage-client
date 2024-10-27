@@ -43,7 +43,8 @@ export function Slider({ stories }: StoryListProps) {
 								<Card className="w-full shadow-lg h-[375px] overflow-hidden">
 									<CardContent className="flex items-center justify-start h-full">
 										<div className="h-full w-[40%] flex items-center justify-center">
-											<img src={`http://${element.coverImage}`} alt="cover" className="w-full h-full object-cover" />
+											<img src={`https://${element.coverImage}`} alt="cover" className="w-full h-full object-cover" />
+											{/* <img src={`http://${element.coverImage}`} alt="cover" className="w-full h-full object-cover" /> */}
 										</div>
 										<div>
 											{element.storyName}
