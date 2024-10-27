@@ -11,7 +11,7 @@ export async function GET(request: Request, response: NextApiResponse) {
 
 		return new NextResponse(JSON.stringify(stories), { status: 200 });
 	} catch (error) {
-		console.error("Error fetching comments:", error);
-		return new NextResponse(JSON.stringify({ message: "An error occurred while fetching comments" }), { status: 500 });
+		console.log("Error fetching comments:", error);
+		return new NextResponse(JSON.stringify({ message: "An error occurred while fetching Stories" }), { status: 500 });
 	}
 }
