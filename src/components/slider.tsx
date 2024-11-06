@@ -1,6 +1,7 @@
 "use client"
 import * as React from "react"
 import Autoplay from "embla-carousel-autoplay"
+import { Skeleton } from "@/components/ui/skeleton";
 
 import { Card, CardContent } from "@/components/ui/card"
 import {
@@ -43,8 +44,8 @@ export function Slider({ stories }: StoryListProps) {
 								<Card className="w-full shadow-lg h-[375px] overflow-hidden">
 									<CardContent className="flex items-center justify-start h-full">
 										<div className="h-full w-[40%] flex items-center justify-center">
-											<img src={`https://${element.coverImage}`} alt="cover" className="w-full h-full object-cover" />
-											{/* <img src={`http://${element.coverImage}`} alt="cover" className="w-full h-full object-cover" /> */}
+											{/* <img src={`https://${element.coverImage}`} alt="cover" className="w-full h-full object-cover" /> */}
+											<img src={`http://${element.coverImage}`} alt="cover" className="w-full h-full object-cover" />
 										</div>
 										<div>
 											{element.storyName}
@@ -73,9 +74,9 @@ export function Slider({ stories }: StoryListProps) {
 					<CarouselItem key={index} className="flex items-center justify-center h-full">
 						<div className="w-full h-full p-5">
 							<Card className="w-full shadow-lg h-[375px]">
-								<CardContent className="flex items-center justify-center h-full">
-									<span className="text-4xl font-semibold">{index + 1}</span>
-								</CardContent>
+								<Skeleton className="flex items-center justify-center h-full">
+									<p className="text-4xl font-semibold">{index + 1}</p>
+								</Skeleton>
 							</Card>
 						</div>
 					</CarouselItem>
