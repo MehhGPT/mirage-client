@@ -202,7 +202,7 @@ export default function Component() {
                                         className="flex w-full items-center justify-evenly"
                                         onTouchStart={handleTouchStart}
                                         onTouchEnd={handleTouchEnd}
-                                        id={data}
+                                        key={data}
                                     >
                                         <Card className="bg-light w-[70%] p-6 cursor-pointer" onClick={() => handleCardClick(data)}>
                                             <CardHeader>
