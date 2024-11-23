@@ -30,8 +30,8 @@ export default function Navbar() {
 
     if (session.data?.user) {
         return (
-            <div className="flex h-[10svh] w-full z-50 flex-col">
-                <div className="fixed top-0 w-full flex h-16 shadow-md items-center gap-4 border-b bg-background px-4 md:px-6">
+            <div className="flex h-[10svh] w-full flex-col z-[1000] relative">
+                <div className="fixed top-0 w-full flex h-16 shadow-md items-center gap-4 border-b bg-background px-4 md:px-6 z-[1000]">
                     <Link href="/" className="hidden flex-col gap-6 text-lg font-normal md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
                         <Logo />
                     </Link>
@@ -73,37 +73,40 @@ export default function Navbar() {
                                 <span className="sr-only">Toggle navigation menu</span>
                             </Button>
                         </SheetTrigger>
-                        <SheetContent side="left">
+                        <SheetContent
+                            side="left"
+                            className="w-[80vw] bg-background z-[1100] shadow-lg flex flex-col"
+                        >
                             <Link
                                 href="/"
-                                className="flex items-center gap-2 text-lg font-semibold"
+                                className="flex items-center gap-2 text-lg font-semibold mb-4"
                             >
                                 <Logo />
                             </Link>
 
-                            <nav className="grid gap-6 text-lg font-medium">
+                            <nav className="grid gap-4 text-lg font-medium">
                                 <Link
                                     href="#"
-                                    className="text-muted-foreground transition-colors hover:text-foreground w-[100px] flex items-center justify-center"
+                                    className="text-muted-foreground transition-colors hover:text-foreground"
                                 >
                                     UPDATES
                                 </Link>
                                 <Link
                                     href="#"
-                                    className="text-muted-foreground transition-colors hover:text-foreground w-[100px] flex items-center justify-center"
+                                    className="text-muted-foreground transition-colors hover:text-foreground"
                                 >
                                     STORY LIST
                                 </Link>
                                 <Link
                                     href={process.env.NEXT_PUBLIC_CREATOR_SITE as string}
-                                    className="text-muted-foreground transition-colors hover:text-foreground w-[100px] flex items-center justify-center"
+                                    className="text-muted-foreground transition-colors hover:text-foreground"
                                     target="_blank"
                                 >
                                     CREATORS &apos;
                                 </Link>
                                 <Link
                                     href="#"
-                                    className="text-muted-foreground transition-colors hover:text-foreground w-[100px] flex items-center justify-center"
+                                    className="text-muted-foreground transition-colors hover:text-foreground"
                                 >
                                     ABOUT
                                 </Link>
@@ -124,8 +127,7 @@ export default function Navbar() {
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
                                 <Button variant="secondary" size="icon" className="rounded-full">
-                                    {/* <CircleUser className="h-5 w-5" /> */}
-                                    <Image src={session.data.user.image as string} alt="User" height={30} width={30} className=" rounded-full" />
+                                    <Image src={session.data.user.image as string} alt="User" height={30} width={30} className="rounded-full" />
                                     <span className="sr-only">Toggle user menu</span>
                                 </Button>
                             </DropdownMenuTrigger>

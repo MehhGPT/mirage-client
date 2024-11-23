@@ -2,6 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
+@media (max-width: 768px) {
+  .sheet-content {
+    width: 80vw !important; /* Ensure the sheet content stays responsive */
+    max-width: 100%; /* Prevents any horizontal overflow */
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-in-out;
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

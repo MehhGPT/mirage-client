@@ -1,21 +1,12 @@
 "use client"; // Marks the component as a Client Component
 
-import Image from 'next/image';
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
-import Berserk from '@/images/COVER1.jpg';
-import { usePathname, useRouter } from 'next/navigation'; // Correct import for useRouter
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
-import { StoryCreatorAddress } from "@/lib/Addresses";
+import { Card, CardHeader, CardTitle } from '@/components/ui/card';
+import { usePathname, useRouter } from 'next/navigation';
+import { useEffect, useRef, useState } from 'react';
 import NFTABI from "@/lib/abis/NFT.json";
 import { ethers } from 'ethers';
 import Link from 'next/link';
-
-// storyIdToContract
-
-function pageData() {
-    return [1, 2, 3];
-}
+import { FullScreenLoader } from '@/app/loader';
 
 async function getStory(storyId: string) {
     try {
@@ -74,12 +65,6 @@ export default function Component() {
     const [childrens, setChildrens] = useState<number[]>([]);
     const [loading, setLoading] = useState(true);
 
-    useLayoutEffect(() => {
-        if (loading) {
-            setLoading(false);
-        }
-    });
-
     const provider = new ethers.JsonRpcProvider("https://polygon-amoy.g.alchemy.com/v2/zoNm-CgB1rQIn0DG1XG0hRHV0hgFW71X")
 
     async function fetchChildPages(parentPageId: number) {
@@ -107,25 +92,22 @@ export default function Component() {
     }, [path]);
 
     useEffect(() => {
-        if (!loading) {
-            const fetchStoriesData = async () => {
-                const data = await getStory(storyId);
-                setSoryInfo(data);
-                storyInfo.map((data: any) => {
-                    setStoryAddress(data?.storyAddress)
-                    setStoryName(data?.storyName)
-                    setCreator(data?.creatorAddress)
-                });
-
-            }
-
-            setTimeout(() => {
-                fetchStoriesData();
-            }, 5000);
+        const fetchStoriesData = async () => {
+            const data = await getStory(storyId);
+            setSoryInfo(data);
+            storyInfo.map((data: any) => {
+                setStoryAddress(data?.storyAddress)
+                setStoryName(data?.storyName)
+                setCreator(data?.creatorAddress)
+                setLoading(false);
+            });
         }
+
+        setTimeout(() => {
+            fetchStoriesData();
+        }, 5000);
     });
 
-    // Swipe state tracking
     const touchStartX = useRef<number>(0);
     const touchEndX = useRef<number>(0);
 
@@ -175,6 +157,8 @@ export default function Component() {
 
     return (
         <div className="bg-dark-800 text-dark p-6">
+            {loading && <FullScreenLoader />} {/* Show the loader when loading */}
+
             <div>
                 <div>
                     Story: {storyName}
@@ -216,7 +200,6 @@ export default function Component() {
                             <div className="flex justify-center items-center w-full">
                                 No more Pages. Create your own Page<Link href={process.env.NEXT_PUBLIC_CREATOR_SITE as string} className='p-1'> here</Link>
                             </div>
-
                     }
                 </div>
             </div>
