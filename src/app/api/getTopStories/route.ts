@@ -7,7 +7,7 @@ export async function GET(request: NextRequest, response: NextApiResponse) {
 	try {
 		await connectMongoDB();
 
-		const stories = await await Story.find().sort({createdAt: -1}).limit(5);
+		const stories = await Story.find().sort({createdAt: -1}).limit(5);
 
 		return new NextResponse(JSON.stringify(stories), { status: 200 });
 	} catch (error) {
